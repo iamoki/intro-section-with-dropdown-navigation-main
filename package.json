@@ -1,0 +1,22 @@
+{
+  "name": "intro-section-with-dropdown-navigation-main",
+  "version": "1.0.0",
+  "description": "![Design preview for the Intro section with dropdown navigation coding challenge](./design/desktop-preview.jpg)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamoki/intro-section-with-dropdown-navigation-main.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamoki/intro-section-with-dropdown-navigation-main/issues"
+  },
+  "homepage": "https://github.com/iamoki/intro-section-with-dropdown-navigation-main#readme",
+  "devDependencies": {
+    "sass": "^1.55.0"
+  }
+}
