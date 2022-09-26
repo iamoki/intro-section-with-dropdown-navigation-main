@@ -4,16 +4,3 @@
 html {
     font-size: $base-font-size;
 }
-
-h1 {
-    color: royalblue;
-    font-size: rem(80px);
-    line-height: lh(48px, 40px);
-    @include font-w(700);
-}
-
-button {
-    @include btnReset(#000);
-    @include wh(200px, 100px);
-    background-color: orange;
-}

@@ -56,22 +56,4 @@ html {
   font-size: 16px;
 }
 
-h1 {
-  color: royalblue;
-  font-size: 5rem;
-  line-height: 1.2;
-  font-weight: 700;
-}
-
-button {
-  padding: 0;
-  border: none;
-  outline: none;
-  color: #000;
-  background: none;
-  width: 200px;
-  height: 100px;
-  background-color: orange;
-}
-
 /*# sourceMappingURL=/main.1e43358e.css.map */
