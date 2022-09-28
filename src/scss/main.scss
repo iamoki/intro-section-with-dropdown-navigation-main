@@ -3,4 +3,162 @@
 
 html {
     font-size: $base-font-size;
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 500;
+}
+
+header {
+    @include flexBox($jc:space-between);
+    padding: 20px 40px 67px;
+    & > div {
+        @include flexBox;
+    }
+    a {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .side-left {
+        .logo {
+            margin-right: 62px;
+        }
+        nav {
+            & > ul {
+                @include flexBox;
+                & > li {
+                    position: relative;
+                    padding: 5px 0;
+                    &:not(:last-child) {
+                        margin-right: 40px;
+                    }
+                    &:hover {
+                        .nav-inner {
+                            display: block;
+                        }
+                    }
+                    a {
+                        display: inline-flex;
+                        align-items: center;
+                        font-size: rem(14px);
+                        line-height: lh(16px, 14px);
+                        color: #686868;
+                        &:hover {
+                            color: #151515;
+                        }
+                    }
+                    .nav-inner {
+                        display: none;
+                        position: absolute;
+                        top: 35px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        @include wh(max-content, auto);
+                        padding: 24px;
+                        box-shadow: 0px 10px 40px 0px #00000026;
+                        border-radius: 10px;
+                        background-color: #fff;
+                        box-sizing: border-box;
+
+                        // 컬러 배열
+                        $colors: (#726CEE, #4BB1DA, #EDD556, #8E4CB6);
+                        @each $color in $colors {
+                            $i: index($colors, $color);
+                            li:nth-child(#{$i}) {
+                                a {
+                                    .material-icons {
+                                        color: #{$color};
+                                    }
+                                }
+                            }
+                        }
+                        li {
+                            &:not(:last-child) {
+                                margin-bottom: 16px;
+                            }
+                        }
+                        a {
+                            gap: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .side-right {
+        a {
+            color: #686868;
+            font-size: rem(14px);
+            line-height: lh(16px, 14px);
+            &:hover {
+                color: #151515;
+            }
+        }
+        .login-btn {
+            margin-right: 40px;
+        }
+        .register-btn {
+            padding: 13px 22px;
+            border: 2px solid #686868;
+            border-radius: 10px;
+            &:hover {
+                border: 2px solid #151515;
+            }
+        }
+    }
+}
+
+.inner {
+    @include flexBox($jc:space-between);
+    gap: 125px;
+    max-width: 1145px;
+    margin: 0 auto;
+    .side-left {
+        align-self: flex-end;
+        .text-box {
+            margin-bottom: 108px;
+            h2 {
+                margin-bottom: 48px;
+                font-size: rem(80px);
+                line-height: lh(80px, 80px);
+                font-weight: 700;
+            }
+            p {
+                margin-bottom: 51px;
+                font-size: rem(18px);
+                line-height: lh(28px, 18px);
+                color: #686868;
+            }
+            button {
+                @include wh(163px, 56px);
+                @include btnReset(#fff);
+                border-radius: 10px;
+                background-color: #000;
+                font-size: rem(18px);
+                line-height: lh(28px, 18px);
+                cursor: pointer;
+                &:hover {
+                    border: 2px solid #000;
+                    background-color: transparent;
+                    color: #000;
+                }
+            }
+        }
+        .logo-box {
+            @include flexBox($jc:flex-start);
+            li {
+                &:not(:last-child) {
+                    margin-right: 40px;
+                }
+            }
+        }
+    }
+    .side-right {
+        .pc-img {
+            min-width: 480px;
+            max-width: 480px;
+            img {
+                width: 100%;
+            }
+        }
+    }
 }
