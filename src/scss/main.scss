@@ -8,10 +8,21 @@ html {
 }
 
 header {
-    @include flexBox($jc:space-between);
+    @include flexBox($jc:flex-start);
+    position: relative;
     padding: 20px 40px 67px;
+    .logo {
+        margin-right: 62px;
+    }
+    .mo-menu-btn {
+        display: none
+    }
     & > div {
-        @include flexBox;
+        @include flexBox($jc:space-between);
+        flex: 1;
+        & > div {
+            @include flexBox;
+        }
     }
     a {
         &:hover {
@@ -19,9 +30,6 @@ header {
         }
     }
     .side-left {
-        .logo {
-            margin-right: 62px;
-        }
         nav {
             & > ul {
                 @include flexBox;
@@ -159,6 +167,51 @@ header {
             img {
                 width: 100%;
             }
+        }
+    }
+}
+
+@media (max-width: 1230px) {
+    .inner {
+        flex-direction: column-reverse;
+        gap: 47.75px;
+        padding-bottom: 50px;
+        .side-left {
+            align-self: center;
+            .text-box {
+                margin-bottom: 48px;
+                text-align: center;
+                h2 {
+                    br {
+                        display: none;
+                    }
+                }
+            }
+            .logo-box {
+                justify-content: center;
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    header {
+        padding: 16px 16px 20px;
+        .mo-menu-btn {
+            display: block;
+            position: absolute;
+            top: 16px;
+            right: 16px;
+        }
+        & > div {
+            position: fixed;
+            top: 0;
+            right: 0;
+            display: block;
+            width: 240px;
+            height: 100vh;
+            padding-top: 78px;
+            background-color: #fff;
         }
     }
 }
