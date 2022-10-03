@@ -101,9 +101,6 @@ header .side-left nav > ul > li {
 header .side-left nav > ul > li:not(:last-child) {
   margin-right: 40px;
 }
-header .side-left nav > ul > li.isMenu.on .nav-inner {
-  display: block;
-}
 header .side-left nav > ul > li a {
   display: inline-flex;
   align-items: center;
@@ -111,8 +108,17 @@ header .side-left nav > ul > li a {
   line-height: 1.1428571429;
   color: #686868;
 }
+header .side-left nav > ul > li a .material-icons {
+  transition: 0.3s;
+}
 header .side-left nav > ul > li a:hover {
   color: #151515;
+}
+header .side-left nav > ul > li a.on + .nav-inner {
+  display: block;
+}
+header .side-left nav > ul > li a.on .material-icons {
+  transform: rotate(180deg);
 }
 header .side-left nav > ul > li .nav-inner {
   display: none;

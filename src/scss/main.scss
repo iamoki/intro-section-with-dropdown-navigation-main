@@ -39,19 +39,25 @@ header {
                     &:not(:last-child) {
                         margin-right: 40px;
                     }
-                    &.isMenu.on {
-                        .nav-inner {
-                            display: block;
-                        }
-                    }
                     a {
                         display: inline-flex;
                         align-items: center;
                         font-size: rem(14px);
                         line-height: lh(16px, 14px);
                         color: #686868;
+                        .material-icons {
+                            transition: .3s;
+                        }
                         &:hover {
                             color: #151515;
+                        }
+                        &.on + .nav-inner {
+                            display: block;
+                        }
+                        &.on {
+                            .material-icons {
+                                transform: rotate(180deg);
+                            }
                         }
                     }
                     .nav-inner {

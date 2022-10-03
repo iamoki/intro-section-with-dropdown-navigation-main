@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="/src/main.js"></script>
+    <script defer src="/src/main.js"></script>
     <title>Frontend Mentor | Intro section with dropdown navigation</title>
 </head>
 <body>
@@ -23,9 +23,9 @@
                 <div class="side-left">
                     <nav id="nav">
                         <ul>
-                            <li class="isMenu">
+                            <li>
                                 <a nohref>
-                                    <span>Features</span>
+                                    <span class="isMenu">Features</span>
                                     <span class="material-icons">
                                         expand_more
                                     </span>
@@ -67,9 +67,9 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li class="isMenu">
+                            <li>
                                 <a nohref>
-                                    <span>Company</span>
+                                    <span class="isMenu">Company</span>
                                     <span class="material-icons">
                                         expand_more
                                     </span>
