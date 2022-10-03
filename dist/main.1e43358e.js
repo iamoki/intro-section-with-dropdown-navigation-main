@@ -195,7 +195,8 @@ require('./scss/main.scss');
 var navEl = document.getElementById('nav');
 navEl.addEventListener('click', function (e) {
   if (e.target.classList.contains('isMenu')) {
-    e.target.parentElement.classList.add('on');
+    var parents = e.target.parentElement;
+    parents.classList.add('on');
   } else {
     return false;
   }
@@ -228,7 +229,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54396" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50155" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
