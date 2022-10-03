@@ -39,7 +39,7 @@ header {
                     &:not(:last-child) {
                         margin-right: 40px;
                     }
-                    &:hover {
+                    &.isMenu.on {
                         .nav-inner {
                             display: block;
                         }
@@ -168,6 +168,9 @@ header {
                 width: 100%;
             }
         }
+        .mo-img {
+            display: none;
+        }
     }
 }
 
@@ -198,20 +201,122 @@ header {
     header {
         padding: 16px 16px 20px;
         .mo-menu-btn {
+            @include btnReset();
             display: block;
-            position: absolute;
+            position: fixed;
             top: 16px;
             right: 16px;
+            @include wh(32px, 18px);
+            &.isOpen {
+                span {
+                    &:nth-child(1) {
+                        top: 8px;
+                        transform: translateX(-50%) rotate(45deg);
+                    }
+                    &:nth-child(2) {
+                        opacity: 0;
+                    }
+                    &:nth-child(3) {
+                        bottom: 7px;
+                        transform: translateX(-50%) rotate(-45deg);
+                    }
+                }
+            }
+            span {
+                @include wh(32px, 2px);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: #000;
+                transition: .3s;
+                &:nth-child(1) {
+                    top: 0;
+                }
+                &:nth-child(3) {
+                    top: auto;
+                    bottom: -2px;
+                }
+            }
         }
         & > div {
             position: fixed;
             top: 0;
-            right: 0;
+            right: -240px;
+            // right: 0;
             display: block;
             width: 240px;
             height: 100vh;
             padding-top: 78px;
             background-color: #fff;
+        }
+        .side-left {
+            nav {
+                width: 100%;
+                padding-left: 24px;
+                margin-bottom: 32px;
+                ul {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    li {
+                        &:not(:last-child) {
+                            margin-right: 0;
+                            margin-bottom: 16px;
+                        }
+                    }
+                }
+            }
+        }
+        .side-right {
+            flex-direction: column;
+            padding: 0 24px;
+            .login-btn {
+                margin-right: 0;
+                margin-bottom: 16px;
+            }
+            .register-btn {
+                width: calc(100% - 48px);
+                text-align: center;
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .inner {
+        .side-left {
+            padding: 0 16px;
+            .text-box {
+                h2 {
+                    font-size: rem(36px);
+                    margin-bottom: 16px;
+                }
+                p {
+                    font-size: rem(16px);
+                    margin-bottom: 24px;
+                }
+            }
+            .logo-box {
+                li {
+                    &:not(:last-child) {
+                        margin-right: 28px;
+                    }
+                    img {
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+        .side-right {
+            .pc-img {
+                display: none;
+            }
+            .mo-img {
+                display: block;
+                img {
+                    max-width: 100%;
+                }
+            }
         }
     }
 }

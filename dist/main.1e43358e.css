@@ -101,7 +101,7 @@ header .side-left nav > ul > li {
 header .side-left nav > ul > li:not(:last-child) {
   margin-right: 40px;
 }
-header .side-left nav > ul > li:hover .nav-inner {
+header .side-left nav > ul > li.isMenu.on .nav-inner {
   display: block;
 }
 header .side-left nav > ul > li a {
@@ -228,6 +228,9 @@ header .side-right .register-btn:hover {
 .inner .side-right .pc-img img {
   width: 100%;
 }
+.inner .side-right .mo-img {
+  display: none;
+}
 
 @media (max-width: 1230px) {
   .inner {
@@ -254,20 +257,108 @@ header .side-right .register-btn:hover {
     padding: 16px 16px 20px;
   }
   header .mo-menu-btn {
+    padding: 0;
+    border: none;
+    outline: none;
+    color: #000;
+    background: none;
     display: block;
-    position: absolute;
+    position: fixed;
     top: 16px;
     right: 16px;
+    width: 32px;
+    height: 18px;
+  }
+  header .mo-menu-btn.isOpen span:nth-child(1) {
+    top: 8px;
+    transform: translateX(-50%) rotate(45deg);
+  }
+  header .mo-menu-btn.isOpen span:nth-child(2) {
+    opacity: 0;
+  }
+  header .mo-menu-btn.isOpen span:nth-child(3) {
+    bottom: 7px;
+    transform: translateX(-50%) rotate(-45deg);
+  }
+  header .mo-menu-btn span {
+    width: 32px;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000;
+    transition: 0.3s;
+  }
+  header .mo-menu-btn span:nth-child(1) {
+    top: 0;
+  }
+  header .mo-menu-btn span:nth-child(3) {
+    top: auto;
+    bottom: -2px;
   }
   header > div {
     position: fixed;
     top: 0;
-    right: 0;
+    right: -240px;
     display: block;
     width: 240px;
     height: 100vh;
     padding-top: 78px;
     background-color: #fff;
+  }
+  header .side-left nav {
+    width: 100%;
+    padding-left: 24px;
+    margin-bottom: 32px;
+  }
+  header .side-left nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  header .side-left nav ul li:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
+  header .side-right {
+    flex-direction: column;
+    padding: 0 24px;
+  }
+  header .side-right .login-btn {
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
+  header .side-right .register-btn {
+    width: calc(100% - 48px);
+    text-align: center;
+  }
+}
+@media (max-width: 800px) {
+  .inner .side-left {
+    padding: 0 16px;
+  }
+  .inner .side-left .text-box h2 {
+    font-size: 2.25rem;
+    margin-bottom: 16px;
+  }
+  .inner .side-left .text-box p {
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+  .inner .side-left .logo-box li:not(:last-child) {
+    margin-right: 28px;
+  }
+  .inner .side-left .logo-box li img {
+    max-width: 100%;
+  }
+  .inner .side-right .pc-img {
+    display: none;
+  }
+  .inner .side-right .mo-img {
+    display: block;
+  }
+  .inner .side-right .mo-img img {
+    max-width: 100%;
   }
 }
 
