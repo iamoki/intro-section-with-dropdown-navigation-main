@@ -7,6 +7,10 @@ html {
     font-weight: 500;
 }
 
+.wrap {
+    min-height: 100vh;
+}
+
 header {
     @include flexBox($jc:flex-start);
     position: relative;
@@ -50,6 +54,11 @@ header {
                         }
                         &:hover {
                             color: #151515;
+                        }
+                        &.isMenu {
+                            span {
+                                pointer-events: none;
+                            }
                         }
                         &.on + .nav-inner {
                             display: block;
@@ -206,14 +215,8 @@ header {
 @media (max-width: 900px) {
     header {
         padding: 16px 16px 20px;
-        .mo-menu-btn {
-            @include btnReset();
-            display: block;
-            position: fixed;
-            top: 16px;
-            right: 16px;
-            @include wh(32px, 18px);
-            &.isOpen {
+        &.isOpen {
+            .mo-menu-btn {
                 span {
                     &:nth-child(1) {
                         top: 8px;
@@ -228,6 +231,26 @@ header {
                     }
                 }
             }
+            & > div {
+                right: 0;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    right: 100%;
+                    width: calc(100% + 100vw);
+                    height: 100%;
+                    background-color: rgba(0,0,0,.5);
+                }
+            }
+        }
+        .mo-menu-btn {
+            @include btnReset();
+            display: block;
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            @include wh(32px, 18px);
             span {
                 @include wh(32px, 2px);
                 position: absolute;
@@ -255,6 +278,7 @@ header {
             height: 100vh;
             padding-top: 78px;
             background-color: #fff;
+            transition: .5s;
         }
         .side-left {
             nav {
@@ -268,6 +292,13 @@ header {
                         &:not(:last-child) {
                             margin-right: 0;
                             margin-bottom: 16px;
+                        }
+                        .nav-inner {
+                            position: static;
+                            top: auto;
+                            left: auto;
+                            transform: translateX(0);
+                            box-shadow: none;
                         }
                     }
                 }

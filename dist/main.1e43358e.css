@@ -58,6 +58,10 @@ html {
   font-weight: 500;
 }
 
+.wrap {
+  min-height: 100vh;
+}
+
 header {
   display: flex;
   justify-content: flex-start;
@@ -113,6 +117,9 @@ header .side-left nav > ul > li a .material-icons {
 }
 header .side-left nav > ul > li a:hover {
   color: #151515;
+}
+header .side-left nav > ul > li a.isMenu span {
+  pointer-events: none;
 }
 header .side-left nav > ul > li a.on + .nav-inner {
   display: block;
@@ -262,6 +269,29 @@ header .side-right .register-btn:hover {
   header {
     padding: 16px 16px 20px;
   }
+  header.isOpen .mo-menu-btn span:nth-child(1) {
+    top: 8px;
+    transform: translateX(-50%) rotate(45deg);
+  }
+  header.isOpen .mo-menu-btn span:nth-child(2) {
+    opacity: 0;
+  }
+  header.isOpen .mo-menu-btn span:nth-child(3) {
+    bottom: 7px;
+    transform: translateX(-50%) rotate(-45deg);
+  }
+  header.isOpen > div {
+    right: 0;
+  }
+  header.isOpen > div::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: calc(100% + 100vw);
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
   header .mo-menu-btn {
     padding: 0;
     border: none;
@@ -274,17 +304,6 @@ header .side-right .register-btn:hover {
     right: 16px;
     width: 32px;
     height: 18px;
-  }
-  header .mo-menu-btn.isOpen span:nth-child(1) {
-    top: 8px;
-    transform: translateX(-50%) rotate(45deg);
-  }
-  header .mo-menu-btn.isOpen span:nth-child(2) {
-    opacity: 0;
-  }
-  header .mo-menu-btn.isOpen span:nth-child(3) {
-    bottom: 7px;
-    transform: translateX(-50%) rotate(-45deg);
   }
   header .mo-menu-btn span {
     width: 32px;
@@ -312,6 +331,7 @@ header .side-right .register-btn:hover {
     height: 100vh;
     padding-top: 78px;
     background-color: #fff;
+    transition: 0.5s;
   }
   header .side-left nav {
     width: 100%;
@@ -325,6 +345,13 @@ header .side-right .register-btn:hover {
   header .side-left nav ul li:not(:last-child) {
     margin-right: 0;
     margin-bottom: 16px;
+  }
+  header .side-left nav ul li .nav-inner {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: translateX(0);
+    box-shadow: none;
   }
   header .side-right {
     flex-direction: column;
